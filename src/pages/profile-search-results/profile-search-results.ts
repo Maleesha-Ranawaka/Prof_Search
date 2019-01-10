@@ -22,6 +22,7 @@ export class ProfileSearchResultsPage {
 
   ionViewWillLoad() {
     this.username = this.navParams.get('username');
+    console.log(this.username);
   }
 
 }

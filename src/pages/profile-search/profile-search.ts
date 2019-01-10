@@ -26,4 +26,8 @@ export class ProfileSearchPage {
     })
   }
 
+  ionViewWillEnter(){
+   this.username = "";
+  }
+
 }
