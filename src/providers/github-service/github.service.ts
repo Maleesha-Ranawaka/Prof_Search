@@ -1,7 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
-import { User} from '../../models/user.interface'
+
+import { User} from '../../models/user.interface';
+import { USER_LIST} from '../../mocks/user.mocks';
 /*
   Generated class for the GithubServiceProvider provider.
 
@@ -10,9 +15,18 @@ import { User} from '../../models/user.interface'
 */
 @Injectable()
 export class GithubServiceProvider {
-
-  constructor(public http: HttpClient) {
-    console.log('Hello GithubServiceProvider Provider');
+//public http: HttpClient
+  constructor() {
+    console.log('Hello GithubServiceProvider');
+  }
+  result :string;
+  /*
+    Finding the username from within USER_LIST, equal to the Username passed in.
+    Returning the results as an Observable.
+  */
+  mockGetUserInformation(username: string): Observable<User> {
+    //console.log(Observable.of(USER_LIST.filter(user => user.name == username)[0]));
+    return Observable.of(USER_LIST.filter(user => user.name == username)[0]);
   }
 
 }
